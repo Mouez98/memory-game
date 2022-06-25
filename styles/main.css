@@ -1,0 +1,78 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+ul {
+  list-style: none;
+}
+
+body .border-primary {
+  border-color: #03a9f4 !important;
+}
+
+/* Info container */
+.container-info {
+  width: 75rem;
+}
+/* Start Game Container */
+.memory-game-container {
+  width: 75rem;
+}
+.memory-game-container .card {
+  height: 15rem;
+  position: relative;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  transition: transform 0.5s linear;
+  cursor: pointer;
+  flex: 1 0 15rem;
+}
+.memory-game-container .card:hover {
+  transform: rotateY(180deg);
+}
+.memory-game-container .card .face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.memory-game-container .card .face.back {
+  transform: rotateY(-180deg);
+  background: rgba(0, 150, 135, 0.5882352941);
+}
+.memory-game-container .card .face.font {
+  background: rgba(66, 66, 66, 0.9254901961);
+  font-size: 6rem;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background-color: rgba(33, 150, 243, 0.8901960784);
+  width: 100%;
+  height: 100vh;
+  display: none;
+}
+.modal .btn {
+  width: 20rem;
+  line-height: 3rem;
+}/*# sourceMappingURL=main.css.map */
