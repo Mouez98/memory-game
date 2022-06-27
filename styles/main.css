@@ -34,10 +34,11 @@ body .border-primary {
   cursor: pointer;
   flex: 1 0 15rem;
 }
-.memory-game-container .card:hover {
+.memory-game-container .card.clicked {
   transform: rotateY(180deg);
 }
 .memory-game-container .card .face {
+  pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -68,9 +69,6 @@ body .border-primary {
   transform: translate(-50%, -50%);
   z-index: 2;
   background-color: rgba(33, 150, 243, 0.8901960784);
-  width: 100%;
-  height: 100vh;
-  display: none;
 }
 .modal .btn {
   width: 20rem;
