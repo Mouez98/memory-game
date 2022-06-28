@@ -49,7 +49,7 @@ body {
         transition: transform .5s linear;
         cursor: pointer;
         flex: 1 0 15rem;
-       &.clicked {
+       &.flip {
             transform: rotateY(180deg);
         
        }

@@ -34,7 +34,7 @@ body .border-primary {
   cursor: pointer;
   flex: 1 0 15rem;
 }
-.memory-game-container .card.clicked {
+.memory-game-container .card.flip {
   transform: rotateY(180deg);
 }
 .memory-game-container .card .face {
