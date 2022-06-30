@@ -1,3 +1,8 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/utilities";
 /* Global Styles */
 
 * {
@@ -25,6 +30,7 @@ body {
 /* Info container */
 .container-info {
     width: 75rem;
+    border: 2px $cyan-600 solid;
     .user{
         span {
             
@@ -47,6 +53,7 @@ body {
         transform-style: preserve-3d;
         transform-origin: center center;
         transition: transform .5s linear;
+        border: 2px $cyan-600 solid;
         cursor: pointer;
         flex: 1 0 15rem;
        &.flip {
@@ -67,10 +74,10 @@ body {
             &.back {
                 transform: rotateY(-180deg);
                 // background: rgb(110, 92, 92);
-                background: #00968796;
+                background: $teal-100;
             }
             &.font {
-                background: #424242ec;
+                background: $cyan-200;
                 // transform: rotateX(0);
                 // background: rgb(141, 224, 192);
                 font-size: 6rem;

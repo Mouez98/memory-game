@@ -3,70 +3,103 @@ const startBtn = document.querySelector('.modal button'),
   userName = document.querySelector('.user span'),
   userTries = document.querySelector('.wrong-tries span'),
   cards = document.querySelectorAll('.memory-game-container .card'),
-  correctAnswers = [];
+  correctAnswers = [],
+  orderRange = [...Array(cards.length).keys()];
 let techs = [];
 
-// console.log(techs);
-
-//Events
+// Events
 startBtn.addEventListener('click', startBtnHandler);
-cards.forEach((card) => {
+
+cards.forEach((card, index) => {
+  // Change Cards orders
+  shufle(orderRange);
+  card.style.order = orderRange[index];
+
   card.addEventListener('click', (e) => {
     const currentCard = e.target;
     const currentTech = currentCard.dataset.tech;
-    currentCard.classList.add('flip')
+    currentCard.classList.add('flip');
     techs.push(currentTech);
 
     let correctAnswer = techs.reduce((prev, curr) => prev === curr);
 
     if (correctAnswer === true) correctAnswers.push(currentTech);
 
-    console.log(correctAnswers, 'corrects answers');
+
 
     if (correctAnswer === true || correctAnswer !== currentTech) {
       techs = [];
     }
-    cards.forEach((card) =>
-            correctAnswers.forEach((corAnswer) => {
-              if (corAnswer.includes(card.dataset.tech))
-                card.classList.add('flip');
-                else setTimeout(() => {
-                  card.classList.remove('flip');
-                }, 700);
-            })
-          );
+    
     // Wrong tries handler
     if (!correctAnswer) {
       userTries.textContent = Number(userTries.innerText) + 1;
-      setTimeout(() => {
-      currentCard.classList.remove('flip');
-    }, 700);
+     
     }
 
+    currentCard.classList.add('flip');
+
     setTimeout(() => {
-      currentCard.classList.remove('flip');
+        cards.forEach(card => {
+          let answer = correctAnswers.join('');
+
+          if (correctAnswer === true && answer.includes(currentTech) ) {
+            currentCard.classList.add('flip') 
+          }
+          
+
+       
+      if(!correctAnswer && !answer.includes(card.dataset.tech)) {
+        // cards.forEach()
+        currentCard.classList.remove('flip')
+      }
+    })
     }, 700);
+  
+  })
+})
 
     // currentCard.classList.add('flip');
-    
-  });
-});
 
-//Functions
+
+// Functions
+
+// Start Function
 function startBtnHandler(e) {
   const modal = e.target.parentNode;
-  const modalClasses = [...modal.classList];
 
-  if (modalClasses.includes('d-flex')) {
-    modal.classList.remove('d-flex');
-    modal.classList.add('d-none');
-  }
+  // Remove modal from DOM
+  modal.remove();
 
+  // Get user input
   let yourName = prompt('enter your name');
 
   changeUserName(yourName);
 }
 
+// Change user name
 function changeUserName(name) {
-  userName.textContent = name;
+  const verfiyName =
+    name === '' || !name ? `Guest${Math.trunc(Math.random() * 1010)}` : name;
+  userName.textContent = verfiyName;
+}
+
+// Shuffle Function
+
+function shufle(array) {
+  let current = array.length,
+    temp,
+    random;
+
+  while (current > 0) {
+    // Get random number
+    random = Math.floor(Math.random() * current);
+
+    // Descrease by one
+    current--;
+
+    // Switch temp with random & random with temp
+    [array[current], array[random]] = [array[random], array[current]];
+  }
+  return array;
 }
