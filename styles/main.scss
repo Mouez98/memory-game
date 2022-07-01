@@ -47,6 +47,9 @@ body {
 /* Start Game Container */
 .memory-game-container {
     width: 75rem;
+    &.no-click {
+        pointer-events: none;
+    }
     .card {
         height: 15rem;
         position: relative;

@@ -2,6 +2,7 @@
 const startBtn = document.querySelector('.modal button'),
   userName = document.querySelector('.user span'),
   userTries = document.querySelector('.wrong-tries span'),
+  cardsContainer = document.querySelector('.memory-game-container'),
   cards = document.querySelectorAll('.memory-game-container .card'),
   correctAnswers = [],
   orderRange = [...Array(cards.length).keys()];
@@ -17,52 +18,58 @@ cards.forEach((card, index) => {
 
   card.addEventListener('click', (e) => {
     const currentCard = e.target;
-    const currentTech = currentCard.dataset.tech;
-    currentCard.classList.add('flip');
-    techs.push(currentTech);
-
-    let correctAnswer = techs.reduce((prev, curr) => prev === curr);
-
-    if (correctAnswer === true) correctAnswers.push(currentTech);
-
-
-
-    if (correctAnswer === true || correctAnswer !== currentTech) {
-      techs = [];
-    }
     
-    // Wrong tries handler
-    if (!correctAnswer) {
-      userTries.textContent = Number(userTries.innerText) + 1;
-     
-    }
-
-    currentCard.classList.add('flip');
-
-    setTimeout(() => {
-        cards.forEach(card => {
-          let answer = correctAnswers.join('');
-
-          if (correctAnswer === true && answer.includes(currentTech) ) {
-            currentCard.classList.add('flip') 
-          }
-          
-
-       
-      if(!correctAnswer && !answer.includes(card.dataset.tech)) {
-        // cards.forEach()
-        currentCard.classList.remove('flip')
-      }
-    })
-    }, 700);
+    flipCard(card)
   
   })
 })
 
-    // currentCard.classList.add('flip');
+    
 
 
 // Functions
+
+// Flip card
+function flipCard(selectedCrad) {
+
+  // add a flip class to the selected card
+  selectedCrad.classList.add('flip')
+
+  //Collect Flipped cards
+  const allFlippedCards =  [...cards].filter(flippedCard => flippedCard.classList.contains('flip'))
+
+  if(allFlippedCards.length === 2) {
+    
+    //Stop Clicking
+      stopClicking()
+
+      checkMatchedCard(allFlippedCards[0], allFlippedCards[1])
+    
+  }
+}
+
+//Stop Clicking Function
+function stopClicking() {
+
+  // Add class no clicking on cradsContainer
+    cardsContainer.classList.add('no-click') 
+
+    setTimeout(() => {
+
+      // Remove class no clicking on cradsContainer
+      cardsContainer.classList.remove('no-click')
+    }, 1000)
+}
+
+// Check matched Cards 
+function checkMatchedCard(firstCard, secondCard){
+    
+  if(firstCard.dataset.tech !== firstCard.dataset.tech) {
+      firstCard.classList.remove('flip')
+      secondCard.classList.remove('flip')
+      userTries.textContent =  ++Number(userTries.value) 
+  }
+}
 
 // Start Function
 function startBtnHandler(e) {

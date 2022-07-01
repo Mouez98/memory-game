@@ -11309,6 +11309,9 @@ body .border-primary {
 .memory-game-container {
   width: 75rem;
 }
+.memory-game-container.no-click {
+  pointer-events: none;
+}
 .memory-game-container .card {
   height: 15rem;
   position: relative;
