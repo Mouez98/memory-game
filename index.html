@@ -16,8 +16,23 @@
 </head>
 
 <body class="vh-100 pt-4 ">
-    <div class="modal d-flex align-items-center justify-content-center">
-        <button class="btn bg-danger text-light fs-3">Start</button>
+    <!-- Modal -->
+    <div class="modal d-flex justify-content-center align-items-center flex-column p-5">
+        <div class="card p-5 ">
+            <h1 class="fs4  mb-5">Choose difficulty:</h1>
+            <ul class="game-difficulty d-flex  mx-auto mb-5">
+                <li class="btn bg-success me-4 fs-3 text-light" data-difficulty="easy">Easy</li>
+                <li class="btn bg-info me-4 fs-3 text-light" data-difficulty="medium">Medium</li>
+                <li class="btn bg-danger fs-3 text-light" data-difficulty="hard">Hard</li>
+            </ul>
+            <!-- <ul class="game-difficulty d-flex  mx-auto mb-5">
+            <li class="btn bg-success me-4 fs-3 text-light" data-difficulty="easy">Easy</li>
+            <li class="btn bg-info me-4 fs-3 text-light" data-difficulty="medium">Medium</li>
+            <li class="btn bg-danger fs-3 text-light" data-difficulty="hard">Hard</li>
+        </ul> -->
+            <button class="btn text-black fs-4 d-block mx-auto border border-1 border-secondary">Start Game</button>
+        </div>
+
     </div>
 
 
@@ -26,7 +41,11 @@
         <div class="user fs-2">
             Hello: <span>User</span>
         </div>
-        <div class="wrong-tries fs-2 text-danger">
+        <div class="timer fs-2 text-danger " data-time="60000">
+            <span class="minutes">--</span>:
+            <span class="seconds">--</span>
+        </div>
+        <div class="wrong-tries fs-2 ">
             Wrong tries: <span>0</span>
         </div>
     </div>
@@ -120,10 +139,31 @@
         </div>
 
 
-
     </div>
     <!--End  Game Memory container -->
-   <script src="./index.js"></script>
+
+    <!-- Ranking -->
+    <div class="scores .card d-block mx-auto">
+        <div class="highes-score fs-4">
+            Highest score : 
+            <span class="tries">0</span> 
+            wrong tries within
+            <span class="time">50s</span>
+        </div>
+        <div class="lowest-score fs-4">
+            Lowset score: 
+            <span class="tries">50</span>
+             wrong tries within
+            <span class="time">50s</span>
+        </div>
+
+    </div>
+
+    <audio id="success" src="./audio/mixkit-arcade-game-jump-coin-216.wav" preload="auto"></audio>
+    <audio id="lose" src="./audio/fail.mp3" preload="auto"></audio>
+    <audio id="bg" src="./audio/bg.mp3" preload="auto" loop></audio>
+
+    <script src="./index.js"></script>
 </body>
 
 </html>

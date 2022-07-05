@@ -31,6 +31,7 @@ body {
 .container-info {
     width: 75rem;
     border: 2px $cyan-600 solid;
+    background-color: #eceff1;
     .user{
         span {
             
@@ -59,8 +60,9 @@ body {
         border: 2px $cyan-600 solid;
         cursor: pointer;
         flex: 1 0 15rem;
-       &.flip {
+       &.flip, &.has-match {
             transform: rotateY(180deg);
+            pointer-events: none;
         
        }
         .face {
@@ -100,8 +102,13 @@ body {
     transform: translate(-50%, -50%);
     z-index: 2;
     background-color: #2196f3e3;
+    
     .btn {
         width: 20rem;
         line-height: 3rem;
     }
 }
+
+.btn {
+    z-index: 1000;
+}       

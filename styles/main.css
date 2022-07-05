@@ -11304,6 +11304,7 @@ body .border-primary {
 .container-info {
   width: 75rem;
   border: 2px #0aa2c0 solid;
+  background-color: #eceff1;
 }
 /* Start Game Container */
 .memory-game-container {
@@ -11322,8 +11323,9 @@ body .border-primary {
   cursor: pointer;
   flex: 1 0 15rem;
 }
-.memory-game-container .card.flip {
+.memory-game-container .card.flip, .memory-game-container .card.has-match {
   transform: rotateY(180deg);
+  pointer-events: none;
 }
 .memory-game-container .card .face {
   pointer-events: none;
@@ -11361,4 +11363,8 @@ body .border-primary {
 .modal .btn {
   width: 20rem;
   line-height: 3rem;
+}
+
+.btn {
+  z-index: 1000;
 }/*# sourceMappingURL=main.css.map */
