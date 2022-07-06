@@ -1,3 +1,4 @@
+
 // Variables
 const startBtn = document.querySelector('.modal button'),
   userName = document.querySelector('.user span'),
@@ -11,9 +12,8 @@ const startBtn = document.querySelector('.modal button'),
   domTimer = document.querySelector('.timer'),
   difficultyBtns =  document.querySelectorAll('.game-difficulty li');
 
-    
 
-// startBtn.parentElement.remove()
+// startBtn.parentElement.parentElement.remove()
 
 // Events
 startBtn.addEventListener('click', startBtnHandler);

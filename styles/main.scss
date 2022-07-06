@@ -29,7 +29,7 @@ body {
 
 /* Info container */
 .container-info {
-    width: 75rem;
+    max-width: 75rem;
     border: 2px $cyan-600 solid;
     background-color: #eceff1;
     .user{
@@ -47,7 +47,7 @@ body {
 
 /* Start Game Container */
 .memory-game-container {
-    width: 75rem;
+    max-width: 75rem;
     &.no-click {
         pointer-events: none;
     }
@@ -59,7 +59,7 @@ body {
         transition: transform .5s linear;
         border: 2px $cyan-600 solid;
         cursor: pointer;
-        flex: 1 0 15rem;
+        flex: 1 1 25%;
        &.flip, &.has-match {
             transform: rotateY(180deg);
             pointer-events: none;
