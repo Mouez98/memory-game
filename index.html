@@ -25,11 +25,7 @@
                 <li class="btn bg-info me-4 fs-3 text-light" data-difficulty="medium">Medium</li>
                 <li class="btn bg-danger fs-3 text-light" data-difficulty="hard">Hard</li>
             </ul>
-            <!-- <ul class="game-difficulty d-flex  mx-auto mb-5">
-            <li class="btn bg-success me-4 fs-3 text-light" data-difficulty="easy">Easy</li>
-            <li class="btn bg-info me-4 fs-3 text-light" data-difficulty="medium">Medium</li>
-            <li class="btn bg-danger fs-3 text-light" data-difficulty="hard">Hard</li>
-        </ul> -->
+          
             <button class="btn text-black fs-4 d-block mx-auto border border-1 border-secondary">Start Game</button>
         </div>
 
@@ -45,8 +41,12 @@
             <span class="minutes">--</span>:
             <span class="seconds">--</span>
         </div>
-        <div class="wrong-tries fs-2 ">
+        <div class="wrong-tries fs-2 d-flex">
             Wrong tries: <span>0</span>
+            <div class="volume ms-3 me-2">
+               <img src="./assests/volume.png" alt="volume" class="sound-on">
+               <img src="./assests//mute.png" alt="mute" class="sound-off d-none">
+            </div>
         </div>
     </div>
     <!-- End Container info -->
@@ -143,18 +143,17 @@
     <!--End  Game Memory container -->
 
     <!-- Ranking -->
-    <ul class="test">
-        none
-    </ul>
     <div class="scores .card d-block mx-auto">
         <div class="highes-score fs-4">
             Highest score : 
+            <span class="name"> Name</span>
             <span class="tries">0</span> 
             wrong tries within
             <span class="time">50s</span>
         </div>
         <div class="lowest-score fs-4">
             Lowset score: 
+            <span class="name"> Name</span>
             <span class="tries">50</span>
              wrong tries within
             <span class="time">50s</span>

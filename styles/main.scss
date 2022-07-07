@@ -41,7 +41,14 @@ body {
         span {
 
         }
+        .volume {
+        img {
+            width: 2rem;
+            cursor: pointer;
+        }
     }
+    }
+    
 }
 
 
@@ -59,7 +66,7 @@ body {
         transition: transform .5s linear;
         border: 2px $cyan-600 solid;
         cursor: pointer;
-        flex: 1 1 25%;
+        flex: 1 1 15rem;
        &.flip, &.has-match {
             transform: rotateY(180deg);
             pointer-events: none;
